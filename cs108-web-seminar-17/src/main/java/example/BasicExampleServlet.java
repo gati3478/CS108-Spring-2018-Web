@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class example.BasicExampleServlet
  */
-@WebServlet(value = "/example.BasicExampleServlet", name = "example.BasicExampleServlet")
+@WebServlet(value = "/BasicExampleServlet", name = "BasicExampleServlet")
 public class BasicExampleServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -32,6 +32,7 @@ public class BasicExampleServlet extends HttpServlet {
         response.setContentType("text/html; charset=UTF-8");
         PrintWriter out = response.getWriter();
 
+        out.println("rame");
         out.println("<!DOCTYPE html>");
         out.println("<html>");
         out.println("<head>");

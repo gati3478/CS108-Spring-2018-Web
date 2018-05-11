@@ -13,20 +13,20 @@ import javax.servlet.http.*;
 @WebServlet(name = "InfoServlet", value = "/Info")
 public class Info extends HttpServlet {
 
-    public void doGet(HttpServletRequest req, HttpServletResponse res)
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        res.setContentType("text/plain");
-        PrintWriter out = res.getWriter();
+        response.setContentType("text/plain");
+        PrintWriter out = response.getWriter();
 
         out.println("Query String:");
-        out.println(req.getQueryString());
+        out.println(request.getQueryString());
         out.println();
 
         out.println("Request Parameters:");
-        Enumeration<String> enumeration = req.getParameterNames();
+        Enumeration<String> enumeration = request.getParameterNames();
         while (enumeration.hasMoreElements()) {
             String name = enumeration.nextElement();
-            String values[] = req.getParameterValues(name);
+            String[] values = request.getParameterValues(name);
             if (values != null) {
                 for (int i = 0; i < values.length; ++i) {
                     out.println(name + " (" + i + "): " + values[i]);
@@ -34,14 +34,14 @@ public class Info extends HttpServlet {
             }
         }
 
-        out.println("path \"" + req.getServletPath() + "\"");
+        out.println("path \"" + request.getServletPath() + "\"");
 
         out.println("Request Headers:");
         out.println();
-        Enumeration names = req.getHeaderNames();
+        Enumeration names = request.getHeaderNames();
         while (names.hasMoreElements()) {
             String name = (String) names.nextElement();
-            Enumeration values = req.getHeaders(name);  // support multiple values
+            Enumeration values = request.getHeaders(name);  // support multiple values
             if (values != null) {
                 while (values.hasMoreElements()) {
                     String value = (String) values.nextElement();

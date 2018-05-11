@@ -29,7 +29,7 @@ public class ContextListener implements ServletContextListener {
 
         try {
             DataSourceMeh mehPool = new ConnectionPoolMeh();
-            mehPool.setDriver("com.mysql.jdbc.Driver");
+            mehPool.setDriver("com.mysql.cj.jdbc.Driver");
             mehPool.setUsername(MyDBInfo.MYSQL_USERNAME);
             mehPool.setPassword(MyDBInfo.MYSQL_PASSWORD);
             mehPool.setServer(MyDBInfo.MYSQL_DATABASE_SERVER);

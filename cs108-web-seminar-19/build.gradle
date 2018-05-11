@@ -32,6 +32,7 @@ dependencies {
             "org.apache.tomcat.embed:tomcat-embed-logging-juli:9.0.0.M6",
             "org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}"
 
+    compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.11'
     testCompile group: 'junit', name: 'junit', version: '4.12'
     testCompile group: 'org.mockito', name: 'mockito-core', version: '2.18.3'
 }

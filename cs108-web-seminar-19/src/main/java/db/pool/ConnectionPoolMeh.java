@@ -1,7 +1,6 @@
 package db.pool;
 
-import com.mysql.jdbc.AbandonedConnectionCleanupThread;
-
+import com.mysql.cj.jdbc.AbandonedConnectionCleanupThread;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -24,7 +23,7 @@ public final class ConnectionPoolMeh implements DataSourceMeh {
     // Connection pool representation
     private BlockingQueue<Connection> pool;
     private final AtomicInteger connectionCount = new AtomicInteger();
-    private int CONNECTION_LIMIT_DEFAULT = 24;
+    private static int CONNECTION_LIMIT_DEFAULT = 24;
 
     public ConnectionPoolMeh() throws ClassNotFoundException {
         // Connection pool
@@ -94,9 +93,9 @@ public final class ConnectionPoolMeh implements DataSourceMeh {
     public void close() {
         boolean error = false;
 
-        for (Connection aPool : pool) {
+        for (Connection con : pool) {
             try {
-                aPool.close();
+                con.close();
             } catch (SQLException e) {
                 e.printStackTrace();
                 error = true;
@@ -112,7 +111,6 @@ public final class ConnectionPoolMeh implements DataSourceMeh {
     private Connection createConnection() throws SQLException {
         return DriverManager.getConnection("jdbc:mysql://"
                 + server, account, password);
-
     }
 
 }

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Track Typing</title>
+</head>
+
+<body>
+
+<h1 id="output">Tracking Typing</h1>
+
+<p>This example shows tracking of keystrokes.  Output resets if the user pauses for over 0.5 seconds.</p>
+
+<script>
+
+function setOutput(str) {
+	var outElem = document.getElementById("output");
+	outElem.innerHTML = str;
+}
+
+var lastKeyPressTime = 0;
+var userInput = "";
+var tolerance = 500;
+var ie = false;
+
+function handleKeyPress(evt) {
+	var ch;
+	
+	if (!evt)
+		ch = event.keyCode; // pre-IE9
+	else ch = evt.charCode; // W3C
+	
+	var time = (new Date()).getTime();
+	if (time - lastKeyPressTime < tolerance) {
+		userInput = userInput + String.fromCharCode(ch);
+	} else {
+		userInput = String.fromCharCode(ch);
+	}
+	setOutput(userInput);
+	
+	lastKeyPressTime = time;
+}
+
+/// SETUP FUNCTIONS
+
+document.onkeypress = handleKeyPress;
+
+</script>
+</body>
+</html>

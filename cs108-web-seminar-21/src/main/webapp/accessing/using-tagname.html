@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<p>First Paragraph</p>
+<p>Second Paragraph</p>
+<p>Third Paragraph</p>
+<div>
+<input type="button" value="Click Here" onclick="change();" />
+</div>
+
+<script>
+
+function change() {
+  var pElems = document.getElementsByTagName("p");
+  pElems[2].style.backgroundColor = "red";
+}
+
+</script>
+</body>
+</html>

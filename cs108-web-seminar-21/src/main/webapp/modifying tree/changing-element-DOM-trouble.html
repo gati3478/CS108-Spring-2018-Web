@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<h1 id="topHeading">Example Heading</h1>
+<div>
+<input type="button" value="Change" onclick="change();" />
+</div>
+
+<script>
+
+function change() {
+    var headingNode = document.getElementById("topHeading");
+    var newTextNode = document.createTextNode("<em>Go</em> <strong>Stanford</strong>");
+		// this won't do what we want it to
+		
+    var oldTextNode = headingNode.firstChild;
+    headingNode.replaceChild(newTextNode,oldTextNode);
+}
+
+</script>
+
+</body>
+</html>
+

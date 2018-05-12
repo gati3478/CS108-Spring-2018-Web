@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Main Window</title>
+<script>
+var popupWin;
+</script>
+</head>
+<body>
+<div>
+<input type="text" size="8" id="valueDisplay" />
+<input type="button" value="Create Popup"
+       onclick="popupWin = window.open('popup.html','popup','width=300,height=80'); popupWin.focus();" />
+<input type="button" value="Get Popup Variable" 
+       onclick="if(popupWin) document.getElementById('valueDisplay').value = popupWin.popupVar;" />
+</div>
+</body>
+</html>

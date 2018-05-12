@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Hawaii</title>
+<link type="text/css" 
+      href="destinations.css"
+      rel="stylesheet" />
+<script>
+
+function changePage() {
+  location.href = document.getElementById("pulldown").value;
+}
+
+</script>
+</head>
+<body>
+<p><img id="destinationPhoto" src="hawaii.jpg" alt="Photo" />
+Come on a romantic cruise to the Hawaiian Islands.  Our Hawaii 
+cruises leave from Los Angeles.  Return air fare is included.
+</p>
+<div id="selectTitle">Select a Destination</div>
+<div>
+<select id="pulldown">
+    <option value="alaska.html">Alaska</option>
+    <option value="greece.html">Greece</option>
+    <option selected="selected" value="hawaii.html">Hawaii</option>
+    <option value="mexico.html">Mexico</option>
+</select>
+<input type="button" value="Go" onclick="changePage();" />
+</div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+git config --global user.name "John Doe"
+git config --global user.email johndoe@example.com
+
+git init
+git add File.java
+git add -A
+git add '*.java’
+git log
+git status
+git commit -m “Commit message”
+
+git remote add origin https://github.com/user/repo.git
+git pull origin master
+git push -u origin master
+git push
+
+git checkout <hash>
+git checkout master
+git checkout branch
+git checkout File.java
+git reset HEAD File.java
+git merge <>
+
+git clone https://github.com/user/repo.git

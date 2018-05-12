@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<h1 id="topHeading">Example Heading</h1>
+
+<div>
+<input type="button" value="Change" onclick="change();" />
+</div>
+
+
+<script>
+
+function change() {
+    var headingNode = document.getElementById("topHeading");
+    var newHeadingText = document.createElement("span");
+		// I create span so there's somewhere to put all the other nodes before calling replaceChild
+		// alternatively could do a series of appendChild calls
+	
+    var newNode = document.createElement("em");
+    var newText = document.createTextNode("Go");
+    newNode.appendChild(newText);
+    newHeadingText.appendChild(newNode);
+	
+    newText = document.createTextNode(" ");
+    newHeadingText.appendChild(newText);
+	
+    newNode = document.createElement("strong");
+    newText = document.createTextNode("Stanford");
+    newNode.appendChild(newText);
+    newHeadingText.appendChild(newNode);
+		
+    var oldTextNode = headingNode.firstChild;
+    headingNode.replaceChild(newHeadingText,oldTextNode);
+}
+
+</script>
+
+</body>
+</html>
+

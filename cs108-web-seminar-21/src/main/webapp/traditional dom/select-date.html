@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Date Conversion</title>
+<script type="text/JavaScript">
+
+function convertDate() {
+  var theForm = document.getElementById("dateConversion");
+  var month = theForm.month.selectedIndex + 1;
+  var day = theForm.day.value;
+  var year = theForm.year.value;
+
+  theForm.convertedDate.value = month + "/" + day + "/" + year;
+ }
+
+</script>
+</head>
+<body>
+<form id="dateConversion">
+<p>
+<select name="month">
+  <option>January</option>
+  <option>February</option>
+  <option>March</option>
+  <option>April</option>
+  <option>May</option>
+  <option>June</option>
+  <option>July</option>
+  <option>August</option>
+  <option>September</option>
+  <option>October</option>
+  <option>November</option>
+  <option>December</option>
+</select>
+<input type="text" name="day" size="2" />
+<input type="text" name="year" size="4" />
+</p>
+<p>
+<input type="text" name="convertedDate" size="10" />
+<input type="button" value="Convert" onclick="convertDate();" />
+</p>
+</form>
+</body>
+</html>

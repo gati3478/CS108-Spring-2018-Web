@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Stanford University</title>
+<style>
+
+body {
+    font-family: sans-serif
+}
+
+.tip {
+    position: absolute; 
+	top: 0px; 
+	left: 0px; 
+	width: 200px; 
+	height: 50px;
+	background-color: #ffcccc;
+	border: solid thin #cc0000;
+    font-size: smaller;
+	visibility: hidden
+}
+
+.hasTip {
+    text-decoration: underline;
+	color: #ff0000;
+}
+
+.tipTitle {
+	font-weight: bold;
+}
+
+</style>
+</head>
+
+<body>
+<h1>Stanford University</h1>
+<p>I stopped by 
+<span class="hasTip" 
+      onmouseover="displayTip(event,'memchu',true);" 
+	  onmouseout="displayTip(event,'memchu',false);">MemChu</span> 
+for a quick visit.  I then left the 
+<span class="hasTip" 
+      onmouseover="displayTip(event,'quad',true);" 
+	  onmouseout="displayTip(event,'quad',false);">Quad</span> 
+and headed for the 
+<span class="hasTip" 
+      onmouseover="displayTip(event,'coho',true);" 
+	  onmouseout="displayTip(event,'coho',false);">CoHo.</span>
+I met some friends and we decided to go to 
+<span class="hasTip" 
+      onmouseover="displayTip(event,'memaud',true);" 
+	  onmouseout="displayTip(event,'memaud',false);">MemAud</span>
+for Flicks.</p>
+
+<div class="tip" id="memchu">
+<div class="tipTitle">MemChu</div>
+<div class="tipText">Memorial Church is part of the Quad.</div>
+</div>
+
+<div class="tip" id="quad">
+<div class="tipTitle">Quad</div>
+<div class="tipText">The Stanford Quad is at the heart of campus.</div>
+</div>
+
+<div class="tip" id="coho">
+<div class="tipTitle">CoHo</div>
+<div class="tipText">The Coffee House is in Tresidder Union.</div>
+</div>
+
+<div class="tip" id="memaud">
+<div class="tipTitle">MemAud</div>
+<div class="tipText">Memorial Auditorium is Stanford's largest venue.</div>
+</div>
+
+<script>
+
+function displayTip(event,tipId,show) {
+    var tipElem = document.getElementById(tipId);
+	if (!show) {
+	    tipElem.style.visibility = "hidden";
+		return;
+	}
+	
+	tipElem.style.top = (event.clientY + 5) + "px";
+	tipElem.style.left = (event.clientX + 5) + "px";
+	tipElem.style.visibility = "visible";
+}
+
+</script>
+</body>
+</html>

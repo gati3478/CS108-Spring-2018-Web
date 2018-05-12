@@ -1,0 +1,12 @@
+body {font-family: sans-serif}
+
+#destinationPhoto {
+	float: left;
+	margin-right: 5px;
+}
+
+#selectTitle {
+	font-size: large;
+	font-weight: bold;
+	margin-bottom: 15px;
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<h1 id="topHeading">Example Header</h1>
+<div>
+<input type="text" id="newHeading" />
+<input type="button" value="Change" onclick="change();" />
+</div>
+
+<script>
+
+function change() {
+    var headingNode = document.getElementById("topHeading");
+    headingNode.innerHTML=document.getElementById("newHeading").value;
+}
+
+</script>
+</body>
+</html>

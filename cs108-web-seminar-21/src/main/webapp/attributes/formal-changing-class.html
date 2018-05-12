@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Untitled Document</title>
+<style>
+
+.first {
+	background-color: red;
+}
+
+.second {
+	background-color: blue;
+}
+
+</style>
+</head>
+<body>
+<h1 id="topHeading" class="first">Example Heading</h1>
+
+<div>
+<input type="button" value="First Class" onclick="changeFirst();" />
+<input type="button" value="Second Class" onclick="changeSecond();" />
+</div>
+
+<script>
+
+function changeFirst() {
+    var headingNode = document.getElementById("topHeading");
+    headingNode.setAttribute("className","first");  // IE
+    headingNode.setAttribute("class","first");  	// Firefox, Chrome, Safari
+}
+
+function changeSecond() {
+    var headingNode = document.getElementById("topHeading");
+    headingNode.setAttribute("className","second");  // IE
+    headingNode.setAttribute("class","second");  	// Firefox, Chrome, Safari
+}
+
+</script>
+</body>
+</html>

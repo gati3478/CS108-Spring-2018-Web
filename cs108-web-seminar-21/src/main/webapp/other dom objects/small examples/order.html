@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Order Page</title>
+<script>
+
+
+function generateConfirmation() {
+  var name = document.getElementById("orderForm").name.value;
+  var address = document.getElementById("orderForm").address.value;
+  document.open();
+  document.writeln("<p>Sending Order to:</p><p>");
+  document.writeln("<strong>" + name + "</strong><br />");
+  document.writeln(address + "</p>");
+  document.close();
+}
+
+</script>
+</head>
+<body>
+<h1>Order Example</h1>
+<form id="orderForm">
+<table>
+  <tr><td>Name:</td>   
+      <td><input type="text" name="name" /></td><td></td></tr>
+  <tr><td>Address:</td>
+      <td><input type="text" name="address" /></td>
+      <td><input type="button" value="Order"
+                 onclick="generateConfirmation();" /></td></tr>
+</table>
+</form>
+</body>
+</html>

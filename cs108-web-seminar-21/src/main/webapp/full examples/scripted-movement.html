@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Tresidder Union</title>
+<style>
+
+#calendar {
+    font-size: smaller;
+	background-color: white;
+	border: solid thin blue;
+}
+
+.eventTitle {
+	font-weight: bold;
+}
+
+.event {
+	margin-bottom: 15px;
+}
+
+h2 {
+	font-size: 12pt;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+</style>
+</head>
+<body onload="setInterval(moveCalendar,10);">
+<h1>About Stanford</h1>
+<p>Located between San Francisco and San Jose in the heart of Silicon Valley, Stanford University 
+is recognized as one of the world's leading research and teaching institutions.</p>
+
+<p>Leland and Jane Stanford founded the University to "promote the public welfare by exercising 
+an influence on behalf of humanity and civilization." Stanford opened its doors in 1891, and 
+more than a century later, it remains dedicated to finding solutions to the great challenges 
+of the day and to preparing our students for leadership in today's complex world.</p>
+
+<p>[source www.stanford.edu]</p>
+<div id="calendar" style="position: absolute; top: 40px; left: 40px; width: 100px;">
+<h2>Events at Stanford</h2>
+
+<div class="event">
+<div class="eventTitle">The Low Temperature Universe</div>
+Tuesday, July 21, 2009.  7:30 PM<br />
+Panofsky Auditorium, SLAC
+</div>
+<div class="event">
+<div class="eventTitle">Electra Festival</div>
+July 23-August 15<br />
+Memorial Auditorium
+</div>
+</div>
+
+<script>
+
+function moveCalendar() {
+    var calElem = document.getElementById("calendar");
+    var pos = parseInt(calElem.style.left);
+	
+	pos = pos + 1;
+	if (pos > 600) pos = 0;
+	
+	calElem.style.left = pos + "px";
+}
+
+</script>
+</body>
+</html>

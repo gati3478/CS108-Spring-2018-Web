@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<h1 id="topHeading">Id Example</h1>
+<div>
+<input type="button" value="Click Here" onclick="change();" />
+</div>
+
+<script>
+
+function change() {
+  // This is an old method to access via IE.  All three of these accesses through document.all should lead to 
+  // the same element.
+
+  var heading = document.all["topHeading"];
+  
+  if (heading != document.all("topHeading")) alert('oops');
+  if (heading != document.all.topHeading) alert('oops');
+  heading.style.backgroundColor = "red";
+}
+
+</script>
+</body>
+</html>

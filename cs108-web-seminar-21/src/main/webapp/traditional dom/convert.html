@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Celsius to Fahrenheit</title>
+
+<script>
+
+function cToF() {
+	celsiusElement = document.getElementById("celsius");
+	fahrenheitElement = document.getElementById("fahrenheit");
+	
+	celsius = parseFloat(celsiusElement.value);
+	fahrenheit = celsius * 9 / 5 + 32;
+	
+	fahrenheitElement.value = fahrenheit;
+}
+
+</script>
+
+<style>
+#convert {
+	width: 400px;
+}
+
+label, .submitspace {
+	float: left;
+	width: 80px;
+}
+
+div {
+	clear: both;
+	margin: 10px;
+}
+</style>
+
+</head>
+
+<body>
+<fieldset id="convert">
+<legend>Celsius to Fahrenheit Conversion</legend>
+<div><label for="celsius">Celsius:</label>
+     <input type="text" id="celsius" /></div>
+<div><label for="fahrenheit">Fahrenheit:</label>
+     <input type="text" id="fahrenheit" /></div>
+<div><span class="submitspace">&nbsp;</span>
+     <input type="button" value="Convert" onclick="cToF();" /></div>
+</fieldset>
+</body>
+</html>

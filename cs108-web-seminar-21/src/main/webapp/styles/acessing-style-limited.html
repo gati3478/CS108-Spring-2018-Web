@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<p>This example only works because we've set the style directly
+as an attribute of the &lt;img&gt; tag.</p>
+	 
+<p><img src="gates.jpg" id="photo" alt="Photo of Gates"
+     style="position: absolute; left: 20px; top: 80px;" /></p>
+	 
+
+<script>
+
+var elem = document.getElementById("photo");
+alert("Position is (" + elem.style.left + "," + elem.style.top + ")");
+
+</script>
+
+</body>
+</html>

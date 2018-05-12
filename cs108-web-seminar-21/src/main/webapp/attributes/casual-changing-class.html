@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Untitled Document</title>
+<style>
+
+.first {
+	background-color: red;
+}
+
+.second {
+	background-color: blue;
+}
+
+</style>
+</head>
+<body>
+<h1 id="topHeading" class="first">Example Heading</h1>
+
+<div>
+<input type="button" value="First Class" onclick="changeFirst();" />
+<input type="button" value="Second Class" onclick="changeSecond();" />
+</div>
+
+<script>
+
+// note that the correct property is not "class" it's "className".  It turns out class is a reserved
+// word in JavaScript even though there are no classes in JavaScript
+
+function changeFirst() {
+    var headingNode = document.getElementById("topHeading");
+    headingNode.className = "first";
+}
+
+function changeSecond() {
+    var headingNode = document.getElementById("topHeading");
+    headingNode.className = "second";
+}
+
+</script>
+</body>
+</html>

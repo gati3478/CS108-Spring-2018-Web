@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Untitled Document</title>
+<style>
+
+body {
+    font-family: sans-serif;
+}
+
+#newsScrollBox {
+	width: 150px;
+	height: 250px;
+ 	background-color: #FDA6CD;
+	overflow: hidden;
+	position: absolute;
+	top: 50px;
+	left: 50px;
+ 	background-color: #FDA6CD;
+}
+
+.news {
+    font-size: smaller;
+	margin: 15px 3px;
+}
+
+.newsHeading {
+	font-size: smaller;
+	font-weight: bold;
+	text-decoration: underline;
+	margin-bottom: 15px;
+	margin-top: 5px;
+	margin-left: 5px;
+}
+
+.eventTitle {
+	font-weight: bold;
+}
+
+</style>
+</head>
+
+<body>
+<div id="newsScrollBox">
+<div id="newsScrollContents" style="position: absolute; top: 0px; left: 0px;">
+<div class="newsHeading">Events at Stanford</div>
+<div class="news"><div class="eventTitle">Parents' Weekend</div>
+February 20-23rd
+</div >
+<div  class="news"><div class="eventTitle">Natural Man</div>
+February 13-15, 20-22<br />
+Piggot Theater
+</div >
+<div class="news"><div class="eventTitle">The Butterfly Emerges: The Transformation of Chinese Painting</div>
+Through May 31<br />
+Cantor Art Center
+</div>
+<div class="news"><div class="eventTitle">Woman's Basketball vs. UCLA</div>
+February 22<br />
+Maples Pavilion
+</div>
+<div class="news"><div class="eventTitle">Viennese Ball</div>
+February 21<br />
+Hyatt Regency, Burlingame 
+</div>
+</div>
+</div>
+
+<script>
+
+function scrollNews() {
+    var newsContents = document.getElementById("newsScrollContents");
+	
+	var pos = parseInt(newsContents.style.top) - 1;
+	
+	newsContents.style.top = pos + "px";
+}
+
+setInterval('scrollNews();',10);
+
+</script>
+</body>
+</html>
+

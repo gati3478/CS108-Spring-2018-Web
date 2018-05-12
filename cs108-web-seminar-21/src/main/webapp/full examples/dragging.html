@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Untitled Document</title>
+<style>
+
+#box {
+	background-color: red;
+	border: thin black solid;
+}
+
+</style>
+</head>
+
+<body>
+<div id="box" style="position: absolute; left: 150px; top: 150px; width: 50px; height: 50px"></div>
+
+<script>
+
+/// INFORMATION RETRIEVAL FUNCTIONS
+function getBoxHeight() {
+	var box = document.getElementById("box");
+	return parseInt(box.style.height);
+}
+
+function getBoxWidth() {
+	var box = document.getElementById("box");
+	return parseInt(box.style.width);
+}
+
+function getBoxTop() {
+	var box = document.getElementById("box");
+	return parseInt(box.style.top);
+}
+
+function getBoxLeft() {
+	var box = document.getElementById("box");
+	return parseInt(box.style.left);
+}
+
+function inBox(x,y) {
+	return (x >= getBoxLeft() && x <= getBoxLeft() + getBoxWidth()
+				&& y >= getBoxTop() && y <= getBoxTop() + getBoxHeight());
+}
+
+/// DRAGGING FUNCTIONS
+// for real dragging, you'll want to track the distance between where the
+// mouse button is going down and the actual corner of the box
+
+var isDragging = false;
+
+function handleMouseDown(evt) {
+	evt = (evt) ? evt : ((event) ? event : null);
+	
+	if (inBox(evt.clientX,evt.clientY)) {
+		isDragging = true;
+		return false;	// don't forget this line or some versions of Firefox will get in trouble when dragging
+	}
+}
+
+function handleMouseUp(evt) {
+	evt = (evt) ? evt : ((event) ? event : null);
+	
+	if (isDragging) {
+		var box = document.getElementById("box");
+		box.style.left = evt.clientX + "px";
+		box.style.top = evt.clientY + "px";
+
+		isDragging = false;		
+	}
+}
+
+function handleMouseMove(evt) {
+	evt = (evt) ? evt : ((event) ? event : null);
+	
+	if (isDragging) {
+		var box = document.getElementById("box");
+		box.style.left = evt.clientX + "px";
+		box.style.top = evt.clientY + "px";
+		
+		return false;  // don't forget this line or some versions of IE won't allow dragging;
+	}
+}
+
+/// SETUP FUNCTIONS
+
+document.onmousedown = handleMouseDown;
+document.onmouseup = handleMouseUp;
+document.onmousemove = handleMouseMove;
+
+</script>
+</body>
+</html>

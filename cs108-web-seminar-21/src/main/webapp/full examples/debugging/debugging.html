@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+
+<div onclick="printDebugAlt('Area was Clicked');">
+<h1 id="debugInfo">Example Debug Header</h1>
+<p>You can use a header on the webpage as one possible place to put debugging information.</p>
+</div>
+
+<div onclick="clicked(event)"><h1>Sample Mouse Track Area</h1>
+<p>The document's title is another potential place to put
+debugging messages.  Clicking here will change the document title (click here and
+check the titlebar).</p></div>
+
+<div onclick="debugFlash()"><h1>Sample Flash Area</h1>
+<p>Sometimes you just want a visual indication that something happened.
+Clicking here will give a visual indicator</p></div>
+
+<script src="debugging.js"></script>
+<script>
+
+function clicked(event) {
+  printDebugCoords(event.clientX,event.clientY,"body was clicked");
+}
+
+</script>
+
+</body>
+</html>

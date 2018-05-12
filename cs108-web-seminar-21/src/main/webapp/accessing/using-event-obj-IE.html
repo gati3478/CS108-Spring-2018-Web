@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Untitled Document</title>
+<style>
+table {
+	border-collapse: collapse;
+}
+td {
+	padding: 5px;
+	border: 1px solid black;
+}
+</style>
+</head>
+
+<body>
+<table>
+<col width="80" />
+<col width="80" />
+<tr><td id="stanford">Stanford</td>
+    <td id="cal">Cal</td></tr>
+<tr><td>21</td>
+    <td>20</td></tr>
+</table>
+
+<script>
+
+function changeColor() {
+  var elem = event.srcElement;
+  elem.style.backgroundColor = 'red';
+}
+
+document.getElementById('stanford').attachEvent("onclick",changeColor);
+</script>
+
+</body>
+</html>

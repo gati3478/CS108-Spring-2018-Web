@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<div><img src="closed.gif" alt="closed" onclick="toggleChildren(this);" /> Stanford Dorms
+  <div style="position: relative; left: 15px; display: none">
+      <img src="closed.gif" alt="closed" onclick="toggleChildren(this);" /> FloMo
+      <div style="position: relative; left: 15px; display: none">
+	      <img src="terminal.gif" alt="terminal" /> Alondra</div>
+      <div style="position: relative; left: 15px; display: none">
+	      <img src="terminal.gif" alt="terminal" /> Cardenal</div>
+      <div style="position: relative; left: 15px; display: none">
+	      <img src="terminal.gif" alt="terminal" /> Faisan</div>
+      <div style="position: relative; left: 15px; display: none">
+	      <img src="terminal.gif" alt="terminal" /> Gavilan</div>
+      <div style="position: relative; left: 15px; display: none">
+	      <img src="terminal.gif" alt="terminal" /> Loro</div>
+      <div style="position: relative; left: 15px; display: none">
+	      <img src="terminal.gif" alt="terminal" /> Mirlo</div>
+      <div style="position: relative; left: 15px; display: none">
+	      <img src="terminal.gif" alt="terminal" /> Paloma</div>
+  </div>
+  <div style="position: relative; left: 15px; display: none">
+      <img src="closed.gif" alt="closed" onclick="toggleChildren(this);" /> Lagunita
+      <div style="position: relative; left: 15px; display: none">
+	      <img src="closed.gif" alt="closed" onclick="toggleChildren(this);" /> West Lag
+	      <div style="position: relative; left: 15px; display: none">
+	          <img src="terminal.gif" alt="terminal" /> Adelfa</div>
+	      <div style="position: relative; left: 15px; display: none">
+		      <img src="terminal.gif" alt="terminal" /> Eucalipto</div>	
+	      <div style="position: relative; left: 15px; display: none">
+		      <img src="terminal.gif" alt="terminal" /> Granada</div>	
+	  </div>
+      <div style="position: relative; left: 15px; display: none">
+	      <img src="terminal.gif" alt="terminal" /> Naranja</div>
+      <div style="position: relative; left: 15px; display: none">
+	      <img src="terminal.gif" alt="terminal" /> Ujamaa</div>
+  </div>
+</div>
+
+<script>
+
+function hideChildren(parentElem) {
+    if(parentElem.hasChildNodes()) {
+	    for (var i=0; i < parentElem.childNodes.length; i++)
+		    if (parentElem.childNodes[i].nodeName == "DIV") {
+			    parentElem.childNodes[i].style.display="none";
+			}
+	}
+}
+
+function showChildren(parentElem) {
+    if(parentElem.hasChildNodes()) {
+	    for (var i=0; i < parentElem.childNodes.length; i++)
+		    if (parentElem.childNodes[i].nodeName == "DIV") {
+			    parentElem.childNodes[i].style.display="block";
+			}
+	}
+}
+
+function toggleChildren(imageElem) {
+    var parentElem = imageElem.parentNode;
+    if (parentElem.nodesDisplayed) {
+	    imageElem.src = "closed.gif";
+	    hideChildren(parentElem);
+		parentElem.nodesDisplayed = false;
+	} else {
+	    imageElem.src = "open.gif";
+	    showChildren(parentElem);
+		parentElem.nodesDisplayed = true;
+	}
+}
+
+</script>
+</body>
+</html>

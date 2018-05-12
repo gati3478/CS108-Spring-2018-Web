@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Untitled Document</title>
+<style>
+table {
+	border-collapse: collapse;
+}
+td {
+	padding: 5px;
+	border: 1px solid black;
+}
+</style>
+</head>
+
+<body>
+<h1>Example</h1>
+<table>
+<tr><td>Team</td><td>Conference</td><td>Overall</td></tr>
+<tr id="teamData"><td>Stanford</td><td>10-3</td><td>19-6</td></tr>
+</table>
+<p>
+<input type="button" value="Stanford" onclick="changeStanford();" />
+<input type="button" value="Cal" onclick="changeCal();" />
+</p>
+
+<p>This won't work in IE, because IE limits which elements can be changed.</p>
+
+<script>
+
+function changeStanford() {
+    var row = document.getElementById("teamData");
+    row.innerHTML="<td>Stanford</td><td>10-3</td><td>19-6</td>";
+}
+
+function changeCal() {
+    var row = document.getElementById("teamData");
+    row.innerHTML="<td>Cal</td><td>11-2</td><td>18-4</td>";
+}
+
+</script>
+</body>
+</html>

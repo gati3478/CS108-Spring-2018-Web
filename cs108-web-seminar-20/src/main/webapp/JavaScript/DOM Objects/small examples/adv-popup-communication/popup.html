@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Popup Example</title>
+<script>
+var name = "";
+var phone = "";
+
+function enterInfo() {
+  name = document.getElementById("info").name.value;
+  phone = document.getElementById("info").phone.value;
+}
+</script>
+</head>
+<body>
+<form id="info">
+<table>
+<tr><td>Name:</td>
+    <td><input name="name" type="text" /></td><td></td>
+</tr>
+<tr><td>Phone:</td>
+    <td><input name="phone" type="text" /></td>
+    <td><input type="button" value="Enter" onclick="enterInfo();" />
+</td>
+</tr>
+</table>
+</form>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Alaska</title>
+<link type="text/css" 
+      href="destinations.css"
+      rel="stylesheet" />
+<script>
+
+function changePage() {
+  location.href = document.getElementById("pulldown").value;
+}
+
+</script>
+</head>
+<body>
+<p><img id="destinationPhoto" src="alaska.jpg" alt="Photo" />
+Explore the wonders of Alaska.
+</p>
+<div id="selectTitle">Select a Destination</div>
+<div>
+<select id="pulldown">
+    <option selected="selected" value="alaska.html">Alaska</option>
+    <option value="greece.html">Greece</option>
+    <option value="hawaii.html">Hawaii</option>
+    <option value="mexico.html">Mexico</option>
+</select>
+<input type="button" value="Go" onclick="changePage();" />
+</div>
+</body>
+</html>

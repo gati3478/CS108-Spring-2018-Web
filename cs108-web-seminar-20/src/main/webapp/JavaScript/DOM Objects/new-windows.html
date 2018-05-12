@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>New Window Example</title>
+</head>
+<body>
+<div><input type="button" value="New"
+       onclick="window.open('example.html','newWindow','width=400,height=200');" />
+<!-- other window features available for the open function include:
+       toolbar to display toolbar
+       location to display location
+       menubar to display menubar
+       scrollbars to create scrollbars
+       resizable to allow window to resize -->
+<input type="button" value="New2"
+       onclick="window.open('example.html','newWindow',
+                     'width=400,height=200,toolbar,resizable,scrollbars');" />
+</div>
+</body>
+</html>

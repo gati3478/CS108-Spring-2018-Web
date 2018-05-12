@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Slideshow</title>
+<script>
+
+var currPic=0;
+
+var picArray = new Array("braun.jpg","gates.jpg","meyer.jpg",
+                               "quad.jpg","memchu.jpg");
+
+function changePic(){
+  currPic = currPic + 1;
+  if (currPic >= picArray.length) {
+    currPic = 0;
+  }
+
+  document.getElementById("photo").src = picArray[currPic];
+}
+
+</script>
+</head>
+<body onload="setInterval(changePic,3000);">
+<h1>Welcome to Stanford</h1>
+
+<div>
+<img src="braun.jpg" alt="photo" id="photo" />
+</div>
+</body>
+</html>

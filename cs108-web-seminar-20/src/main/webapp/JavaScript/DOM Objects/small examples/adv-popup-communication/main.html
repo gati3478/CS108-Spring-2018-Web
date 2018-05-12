@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Main Example</title>
+<script>
+var popupWindow;
+
+function getInfo() {
+  popupWindow = window.open("popup.html","popup","height=100,width=300");
+}
+
+function summarizeInfo() {
+  document.getElementById("main").summary.value = "name: " + popupWindow.name 
+                                   + "\nphone: " + popupWindow.phone;
+}
+</script>
+</head>
+<body>
+<form id="main">
+<div>
+<textarea rows="5" cols="40" name="summary">
+</textarea>
+<br />
+<input type="button" value="Get Info" onclick="getInfo();" />
+<input type="button" value="Summarize" onclick="summarizeInfo();" />
+</div>
+</form>
+</body>
+</html>

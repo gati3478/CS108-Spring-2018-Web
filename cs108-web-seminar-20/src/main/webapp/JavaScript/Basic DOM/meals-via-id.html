@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Meals</title>
+<script>
+
+function calculateTotal() {
+  var total = 0;
+  if (document.getElementById("friday").checked)
+    total = total + 8;
+  if (document.getElementById("saturday").checked)
+    total = total + 8;
+  if (document.getElementById("sunday").checked)
+    total = total + 8;
+  document.getElementById("total").value = total;
+}
+
+</script>
+<style>
+h1 {font-size: large;}
+td {padding: 3px;}
+div {padding: 3px;}
+</style>
+</head>
+<body>
+<form id="meals">
+<h1>Meals desired ($8 each):</h1>
+<table>
+<tr><td>Friday Dinner</td>
+    <td><input type="checkbox" name="friday" id="friday" /></td>
+</tr>
+<tr><td>Saturday Dinner</td> 
+    <td><input type="checkbox" name="saturday" id="saturday" /></td>
+</tr>
+<tr><td>Sunday Dinner</td>   
+    <td><input type="checkbox" name="sunday" id="sunday" /></td>
+</tr>
+</table>
+<div>
+<input type="text" size="5" name="total" id="total" />
+<input type="button" value="Total" onclick="calculateTotal();" />
+</div>
+</form>
+</body>
+</html>

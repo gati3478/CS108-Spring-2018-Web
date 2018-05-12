@@ -1,0 +1,15 @@
+a {
+  text-decoration: none;
+}
+
+#main {
+  width: 600px;
+  margin: auto;
+}
+
+#main-img img,
+#thumbs img {
+  padding: 3px;
+  border: 1px solid #ccc;
+  margin: 4px;
+}

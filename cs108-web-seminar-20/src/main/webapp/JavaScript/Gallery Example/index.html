@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Simple gallery example</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+	<div id="main">
+		<div id="thumbs">
+			<a href="image1.jpg" class="thumb">
+				<img src="thumbs/image1.jpg" />
+			</a>
+			<a href="image2.jpg" class="thumb">
+				<img src="thumbs/image2.jpg" />
+			</a>
+			<a href="image3.jpg" class="thumb">
+				<img src="thumbs/image3.jpg" />
+			</a>
+		</div>
+
+		<div id="main-image">
+			<img src="image1.jpg" onclick="alert('hi');" />
+			<!-- img src="image1.jpg" onclick="mainImageClicked()"/-->
+		</div>
+	</div>
+
+
+	<!-- try loading script in html head  -->
+	<script src="script.js"></script>
+
+</body>
+
+</html>

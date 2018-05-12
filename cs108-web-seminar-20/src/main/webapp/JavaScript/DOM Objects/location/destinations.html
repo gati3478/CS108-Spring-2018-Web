@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Cruise Destinations</title>
+<link type="text/css" 
+      href="destinations.css"
+      rel="stylesheet" />
+<script>
+
+function changePage() {
+  location.href = document.getElementById("pulldown").value;
+}
+
+</script>
+</head>
+<body>
+<p><img id="destinationPhoto" src="destinations.jpg" alt="Photo" />
+We offer cruises all over the world.  We're sure to have the
+right cruise for you.  To learn more, select a destination
+from the menu below.
+</p>
+<div id="selectTitle">Select a Destination</div>
+<div>
+<select id="pulldown">
+    <option selected="selected" value="alaska.html">Alaska</option>
+    <option value="greece.html">Greece</option>
+    <option value="hawaii.html">Hawaii</option>
+    <option value="mexico.html">Mexico</option>
+</select>
+<input type="button" value="Go" onclick="changePage();" />
+</div>
+</body>
+</html>

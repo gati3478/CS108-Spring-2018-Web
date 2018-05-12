@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Radio Button Access Example</title>
+<script>
+
+function changePhoto() {
+  if (document.getElementById("main").photoSelect[0].checked)
+    document.getElementById("photo").src = "images/car.jpg";
+  else document.getElementById("photo").src = "images/truck.jpg";
+}
+
+</script>
+<style>
+#photo {
+	float: left;
+}
+</style>
+</head>
+<body>
+<h2>Are You Looking for a Car or Truck?</h2>
+<div>
+<img id="photo" src="images/car.jpg" alt="Vehicle Photo" />
+<form id="main">
+  <div>
+  <label><input type="radio" name="photoSelect" checked="checked" />
+  Car</label><br />
+  <label><input type="radio" name="photoSelect" />
+  Truck</label><br />
+  <input type="button" value = "Change Photo" onclick="changePhoto()" />
+  </div>
+</form>
+</div>
+</body>
+</html>

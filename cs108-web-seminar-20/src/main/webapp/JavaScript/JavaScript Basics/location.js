@@ -5,7 +5,7 @@ var locationArray =[{zipcode: "94025", location: "1234 ABC Street"},
 
 function findLocation(zipcode) {
   for (var i = 0; i < locationArray.length; i++) {
-    if (locationArray[i].zipcode == zipcode) {
+    if (locationArray[i].zipcode === zipcode) {
       return locationArray[i].location;
     }
   }

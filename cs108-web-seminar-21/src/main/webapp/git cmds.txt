@@ -20,5 +20,6 @@ git checkout branch
 git checkout File.java
 git reset HEAD File.java
 git merge <>
+git merge develop
 
 git clone https://github.com/user/repo.git

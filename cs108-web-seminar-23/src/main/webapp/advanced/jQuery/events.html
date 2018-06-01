@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>JQuery Events Example</title>
+    <style>
+
+        h1 {
+            font-size: 14pt;
+        }
+
+        #theDiv {
+            width: 200px;
+            height: 150px;
+            background-color: red;
+            margin: 15px;
+            padding: 15px;
+            border: 2px black solid;
+            position: absolute;
+            top: 1.5in;
+            left: 1.5in;
+        }
+
+        #weirdText {
+            position: relative;
+            top: 20px;
+            left: 20px;
+        }
+
+    </style>
+<body>
+
+<div id="theDiv">
+    <h1>Some <span id="weirdText">Weird</span> Text</h1>
+
+    <p>A random paragraph</p>
+</div>
+
+<div>
+    <input type="text" id="textField" title="text"/>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script>
+
+    function mousetrack(evt) {
+        $("#textField").val("(" + evt.clientX + ", " + evt.clientY + ")");
+    }
+
+    $("#theDiv").bind("mouseover", mousetrack);
+
+</script>
+</body>
+</html>

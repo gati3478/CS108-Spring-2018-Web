@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>JQuery Dimensions Example</title>
+    <style>
+
+        h1 {
+            font-size: 14pt;
+        }
+
+        #theDiv {
+            width: 200px;
+            height: 150px;
+            background-color: red;
+            margin: 15px;
+            padding: 15px;
+            border: 2px black solid;
+            position: absolute;
+            top: 1.5in;
+            left: 1.5in;
+        }
+
+        #weirdText {
+            position: relative;
+            top: 20px;
+            left: 20px;
+        }
+
+    </style>
+<body>
+
+<div id="theDiv">
+    <h1>Some <span id="weirdText">Weird</span> Text</h1>
+
+    <p>A random paragraph</p>
+</div>
+
+<div>
+    <input type="text" id="textField" title="text"/>
+    <input type="button" value="Get Offset" id="getOffset"/>
+    <input type="button" value="Change Location" id="changeLocationButton"/>
+    <input type="button" value="Get Weird Offset" id="getWeirdOffset"/>
+    <input type="button" value="Get Weird Position" id="getWeirdPosition"/>
+    <input type="button" value="Get Width" id="getWidth"/>
+    <input type="button" value="Set Width" id="setWidth"/>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script>
+
+    function getOffset() {
+        /* note that offset is position of the actual element relative to window, margin is considered outside of element */
+
+        var offset = $("#theDiv").offset();
+        $("#textField").val("top: " + offset.left + ", left: " + offset.top);
+    }
+
+    function changeLocation() {
+        $("#theDiv").offset({top: 100, left: 15});
+    }
+
+    function getWeirdOffset() {
+        /* note that offset is position of the actual element relative to window */
+
+        var offset = $("#weirdText").offset();
+        $("#textField").val("top: " + offset.left + ", left: " + offset.top);
+    }
+
+    function getWeirdPosition() {
+        /* note that position is position of the actual element relative to containing elements */
+
+        var position = $("#weirdText").position();
+        $("#textField").val("top: " + position.left + ", left: " + position.top);
+    }
+
+    function getWidth() {
+        $("#textField").val($("#theDiv").width());
+    }
+
+    function setWidth() {
+        $("#theDiv").width(parseInt($("#textField").val()));
+    }
+
+    $("#getOffset").bind("click", getOffset);
+    $("#changeLocationButton").bind("click", changeLocation);
+    $("#getWeirdOffset").bind("click", getWeirdOffset);
+    $("#getWeirdPosition").bind("click", getWeirdPosition);
+    $("#getWidth").bind("click", getWidth);
+    $("#setWidth").bind("click", setWidth);
+
+</script>
+</body>
+</html>

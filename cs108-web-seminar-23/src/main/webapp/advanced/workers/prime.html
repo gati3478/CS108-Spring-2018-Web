@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>WebWorker Example</title>
+</head>
+<body>
+<textarea id="primes" rows="10" cols="50" title="title">
+</textarea>
+<br/>
+<input type="button" value="Find Primes" onclick="findPrimes();"/>
+<input type="button" value="Stop Primes" onclick="stopPrimes();"/>
+
+<script>
+
+    var worker;
+
+    function handlePrime(msg) {
+        var primeOutput = document.getElementById("primes");
+        primeOutput.value = primeOutput.value + ", " + msg.data;
+    }
+
+    function findPrimes() {
+        worker = new Worker("primes.js");
+        worker.onmessage = handlePrime;
+    }
+
+    function stopPrimes() {
+        worker.terminate(); // send message to worker to stop  it
+    }
+
+</script>
+</body>
+</html>

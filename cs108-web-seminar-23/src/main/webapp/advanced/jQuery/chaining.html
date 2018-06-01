@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>JQuery Example</title>
+    <style>
+
+        #logo {
+            float: right;
+            margin: 0 5px;
+        }
+
+        .redElements {
+            color: red;
+        }
+
+        .underlinedElements {
+            text-decoration: underline;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<h1>The Big Game</h1>
+
+<p><img id="logo" src="tree-logo.gif" alt="Stanford Tree Logo"/>
+    Stanford has been playing Cal in the Big Game since 1892. Team
+    Manager and Future President Herbert Hoover famously forgot to bring the ball
+    to one Big Game. </p>
+
+<h2>Big Game Traditions</h2>
+
+<p>Big Game includes many traditions.</p>
+
+<h3>The Bonfire</h3>
+
+<p>One Stanford tradition, a bonfire at Lake Lag before Big Game, has been
+    abandoned in order to protect the endangered Salamander.</p>
+
+<h3 id="oski">Impalling Oski</h3>
+
+<p>LSJUMB impals Cal's mascot Oski the Bear on the Claw Fountain before
+    Big Game.</p>
+
+<h3>Gaities</h3>
+
+<p>Stanford's Gaities musical extravaganza is performed for several nights
+    before Big Game.</p>
+
+<h3>The Axe</h3>
+
+<p>An Axe is passed to the current winner of the Big Game.</p>
+
+<h2>Big Game Scores</h2>
+
+<p>Here are scores from the earliest big games</p>
+
+<ol>
+    <li>Stanford 15, Cal 10 (1892)</li>
+    <li>Stanford 10, Cal 10 (1892)</li>
+    <li>Stanford 6, Cal 6 (1893)</li>
+    <li>Stanford 6, Cal 0 (1894)</li>
+</ol>
+
+<h2>Other Big Stuff</h2>
+
+<p>"Big" has been attached to other Stanford/Cal meets:</p>
+
+<ul>
+    <li>Big Splash (Waterpolo)</li>
+    <li>Big Swim (Swimming)</li>
+    <li>Big Meet (Track and Field)</li>
+    <li>Big Spike (Volleyball)</li>
+</ul>
+
+<div>
+    <input type="button" value="Make Changes" id="theButton"/>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script>
+
+    function changeStuff() {
+        $("li").addClass("redElements").addClass("underlinedElements");
+    }
+
+    $("#theButton").bind("click", changeStuff);
+
+</script>
+</body>
+</html>

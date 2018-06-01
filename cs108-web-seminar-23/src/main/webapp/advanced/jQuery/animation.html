@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>JQuery Example</title>
+    <style type="text/css">
+
+        #logo {
+            float: right;
+            margin: 0 5px;
+        }
+
+        .redElements {
+            color: red;
+        }
+
+        .greenElements {
+            color: green;
+        }
+
+        .blueElements {
+            color: blue;
+        }
+
+        .purpleElements {
+            color: purple;
+        }
+
+        #theDiv {
+            width: 200px;
+            height: 150px;
+            background-color: red;
+            margin: 15px;
+            padding: 15px;
+            border: 2px black solid;
+            position: absolute;
+            top: 200px;
+            left: 150px;
+        }
+
+        div h1 {
+            font-size: 14pt;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<h1>The Big Game</h1>
+
+<p><img id="logo" src="tree-logo.gif" alt="Stanford Tree Logo"/>
+    Stanford has been playing Cal in the Big Game since 1892. Team
+    Manager and Future President Herbert Hoover famously forgot to bring the ball
+    to one Big Game. </p>
+
+<div>
+    <input type="button" value="Fade Out" id="theFadeOutButton"/>
+    <input type="button" value="Fade In" id="theFadeInButton"/>
+    <input type="button" value="Fade Out and In" id="theFadeOutAndInButton"/>
+    <input type="button" value="Animate" id="theAnimateButton"/>
+    <input type="button" value="Animate Heading" id="theAnimateButton2"/>
+</div>
+
+<div id="theDiv">
+    <h1>Some Random Text</h1>
+
+    <p>A random paragraph</p>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script>
+
+    function fadeIn() {
+        $("#logo").fadeIn(2000);
+    }
+
+    function fadeOut() {
+        $("#logo").fadeOut(2000);
+    }
+
+    function fadeOutAndIn() {
+        $("#logo").fadeOut(2000, fadeIn);
+    }
+
+    function goAnimate() {
+        $("#theDiv").animate(
+            {
+                left: "+=150",
+                top: "+=150"
+            },
+            5000
+        );
+    }
+
+    function goAnimate2() {
+        $("h1").animate(
+            {fontSize: "+=50"},
+            5000
+        );
+    }
+
+    $("#theFadeInButton").bind("click", fadeIn);
+    $("#theFadeOutButton").bind("click", fadeOut);
+    $("#theFadeOutAndInButton").bind("click", fadeOutAndIn);
+    $("#theAnimateButton").bind("click", goAnimate);
+    $("#theAnimateButton2").bind("click", goAnimate2);
+</script>
+</body>
+</html>

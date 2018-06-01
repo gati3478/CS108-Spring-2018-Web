@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<!--suppress JSPrimitiveTypeWrapperUsage -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Using AJAX</title>
+</head>
+<body>
+<script>
+    function printTable(json) {
+        var tableArea = document.getElementById('people');
+
+        // Removing previous table if exists
+        if (tableArea.childNodes.length > 0) {
+            tableArea.removeChild(tableArea.childNodes[0]);
+        }
+
+        var table = document.createElement('table');
+
+        json.forEach(function (person) {
+            var tr = document.createElement('tr');
+
+            var td1 = document.createElement('td');
+            var td2 = document.createElement('td');
+            var td3 = document.createElement('td');
+            var td4 = document.createElement('td');
+
+            var text1 = document.createTextNode(person.firstName);
+            var text2 = document.createTextNode(person.lastName);
+            var text3 = document.createTextNode(person.phone);
+            var text4 = document.createTextNode(person.phoneType);
+
+            td1.appendChild(text1);
+            td2.appendChild(text2);
+            td3.appendChild(text3);
+            td4.appendChild(text4);
+
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            tr.appendChild(td3);
+            tr.appendChild(td4);
+
+            table.appendChild(tr);
+        });
+
+        // Appending created table to the div
+        tableArea.appendChild(table);
+    }
+
+    function addPerson() {
+        // Initializing XmlHttpRequest object (cross-platform)
+        var xhr = false;
+        if (typeof ActiveXObject !== "undefined") {
+            try {
+                xhr = new ActiveXObject("Msxml2.XMLHTTP");
+            } catch (ex) {
+                try {
+                    xhr = new ActiveXObject("Microsoft.XMLHTTP");
+                } catch (ex2) {
+                    xhr = false;
+                }
+            }
+        } else if (window.XMLHttpRequest) {
+            try {
+                xhr = new XMLHttpRequest();
+            } catch (ex) {
+                xhr = false;
+            }
+        }
+
+        if (!xhr) {
+            alert("Unable to connect!");
+            return;
+        }
+
+        // Configuring request and success callback
+        var url = "PeopleServlet";
+        xhr.open("POST", url);
+        xhr.setRequestHeader("Content-type", "application/json");
+        xhr.onreadystatechange = function () {
+            var DONE = 4; // readyState 4 means the request is done.
+            var OK = 200; // status 200 is a successful return.
+            if (xhr.readyState === DONE) {
+                if (xhr.status === OK) {
+                    var json = JSON.parse(xhr.responseText);
+                    printTable(json);
+                }
+            }
+        };
+
+        // Preparing the data to send
+        var form = document.getElementsByTagName("form")[0];
+        var data = {
+            first_name: form.first_name.value,
+            last_name: form.last_name.value,
+            phone: form.phone.value,
+            phone_type: form.phone_type.value
+        };
+        var jsonData = JSON.stringify(data);
+
+        // Sending the data
+        xhr.send(jsonData);
+
+        // Overriding submit button default behavior
+        return false;
+    }
+</script>
+<h1>Person Registration Form</h1>
+<form>
+    <label>First name:
+        <input type="text" name="first_name">
+    </label>
+    <br/>
+    <label>
+        Last name:
+        <input type="text" name="last_name">
+    </label>
+    <br/>
+    <label>
+        Phone:
+        <input type="text" name="phone">
+    </label>
+    <br/>
+    <label>
+        Mobile
+        <input type="radio" name="phone_type" value="Mobile">
+    </label>
+    <label>
+        Home
+        <input type="radio" name="phone_type" value="Home">
+    </label>
+    <br/>
+    <br/>
+    <input type="submit" value="Add Person" onclick="addPerson(); return false;">
+</form>
+<br/>
+<br/>
+<div id="people"></div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>WebWorker Example</title>
+</head>
+<body>
+<input type="text" id="prime" title="prime"/>
+<br/>
+<input type="button" value="Find Prime" onclick="findPrime();"/>
+
+<p>Enter a number and the web worker will find the next prime larger
+    than the number entered</p>
+
+<script>
+
+    var worker = new Worker("primes-adv.js");
+
+    function handleResult(msg) {
+        var primeOutput = document.getElementById("prime");
+        primeOutput.value = msg.data;
+    }
+
+    worker.onmessage = handleResult;
+
+    function findPrime() {
+        worker.postMessage(document.getElementById("prime").value);
+    }
+
+</script>
+</body>
+</html>

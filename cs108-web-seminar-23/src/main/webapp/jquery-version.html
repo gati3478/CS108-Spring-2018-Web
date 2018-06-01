@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!--suppress JSPrimitiveTypeWrapperUsage -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Using AJAX with jQuery</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <!-- or we could use the CDN <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
+</head>
+<body>
+<script>
+    function printTable(json) {
+        var tableArea = document.getElementById('people');
+
+        // Removing previous table if exists
+        if (tableArea.childNodes.length > 0) {
+            tableArea.removeChild(tableArea.childNodes[0]);
+        }
+
+        var table = document.createElement('table');
+
+        json.forEach(function (person) {
+            var tr = document.createElement('tr');
+
+            var td1 = document.createElement('td');
+            var td2 = document.createElement('td');
+            var td3 = document.createElement('td');
+            var td4 = document.createElement('td');
+
+            var text1 = document.createTextNode(person.firstName);
+            var text2 = document.createTextNode(person.lastName);
+            var text3 = document.createTextNode(person.phone);
+            var text4 = document.createTextNode(person.phoneType);
+
+            td1.appendChild(text1);
+            td2.appendChild(text2);
+            td3.appendChild(text3);
+            td4.appendChild(text4);
+
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            tr.appendChild(td3);
+            tr.appendChild(td4);
+
+            table.appendChild(tr);
+        });
+
+        // Appending created table to the div
+        tableArea.appendChild(table);
+    }
+
+    $(document).on("submit", "#form", function (event) {
+        event.preventDefault(); // Important! Prevents submitting the form.
+
+        var $form = $(this);
+
+        // Preparing the data to send
+        var data = {
+            first_name: $("input[name=first_name]").val(),
+            last_name: $("input[name=last_name]").val(),
+            phone: $("input[name=phone]").val(),
+            phone_type: $("input[name=phone_type]").val()
+        };
+        var jsonData = JSON.stringify(data);
+
+        $.post($form.attr("action"), jsonData, function (jsonResponse) {
+            printTable(jsonResponse);
+        });
+    });
+
+</script>
+<h1>Person Registration Form</h1>
+<form id="form" action="PeopleServlet" method="post">
+    <label>First name:
+        <input type="text" name="first_name">
+    </label>
+    <br/>
+    <label>
+        Last name:
+        <input type="text" name="last_name">
+    </label>
+    <br/>
+    <label>
+        Phone:
+        <input type="text" name="phone">
+    </label>
+    <br/>
+    <label>
+        Mobile
+        <input type="radio" name="phone_type" value="Mobile">
+    </label>
+    <label>
+        Home
+        <input type="radio" name="phone_type" value="Home">
+    </label>
+    <br/>
+    <br/>
+    <input type="submit" value="Add Person">
+</form>
+<br/>
+<br/>
+<div id="people"></div>
+</body>
+</html>

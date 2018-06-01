@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Dynamically Adding Elements to Form</title>
+</head>
+<body>
+<form>
+    <input type="hidden" id="numberOfItems" name="numberOfItems" value="0"/>
+    <div id="add0"></div>
+    <input type="button" id="addBtn" value="Add an Item" onclick="addItem();"/>
+    <input type="submit"/>
+</form>
+<script>
+    function addItem() {
+        var currItem = document.getElementById("numberOfItems").value;
+        var nextItem = parseInt(currItem) + 1;
+        var currDiv = document.getElementById("add" + currItem);
+
+        currDiv.innerHTML = '<input type="text" name="item' + currItem + '" />'
+            + '<div id="add' + nextItem + '"></div>';
+
+        document.getElementById("numberOfItems").value = nextItem;
+    }
+</script>
+</body>
+</html>

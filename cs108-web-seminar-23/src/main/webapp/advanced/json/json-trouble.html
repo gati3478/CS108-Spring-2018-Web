@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Test</title>
+</head>
+<body>
+<textarea id="result" rows="2" cols="40" title="result">
+</textarea>
+
+
+<script>
+    var example =
+        {
+            'name': 'patrick',
+            'dog': 'molly'
+        };
+
+    example.self = example;  // here we have added a loop to our structure
+
+    var output = JSON.stringify(example);  // this will no longer work
+
+    document.getElementById("result").value = output;
+</script>
+</body>
+</html>
